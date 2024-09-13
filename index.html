@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Властивості</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #262833;
+        color: #ffffff;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #39e991;
+        border-bottom: 2px solid #5171ff;
+        padding-bottom: 5px;
+      }
+
+      h2 {
+        color: #39e991;
+        border-bottom: 2px solid #5171ff;
+        padding-bottom: 5px;
+      }
+
+      section {
+        margin: 0 auto 20px;
+        padding: 15px;
+        border: 1px solid #5171ff;
+        border-radius: 8px;
+        background-color: #ffffff;
+        color: #262833;
+        max-width: 1024px;
+      }
+
+      .example {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #f0f0f0;
+        color: #262833;
+        font-family: monospace;
+        overflow-x: auto;
+        gap: 20px;
+      }
+
+      .example code {
+        display: block;
+        padding: 10px;
+        background-color: #262833;
+        color: #ffffff;
+        border-radius: 4px;
+      }
+
+      .example img {
+        max-width: 100%;
+      }
+
+      /* clamp() */
+      .text-clamp {
+        font-size: clamp(1rem, 2vw, 2rem);
+        background-color: #39e991;
+        padding: 10px;
+        color: #262833;
+      }
+
+      /* aspect-ratio */
+      .video-container {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        background-color: #000;
+        position: relative;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* object-fit */
+      .image-fit {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      /* backdrop-filter */
+      .glass {
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* isolation */
+      .overlay-container {
+        position: relative;
+        background: #5171ff;
+        padding: 20px;
+        color: #ffffff;
+      }
+
+      .overlay-content {
+        background: rgba(57, 233, 145, 0.6);
+        padding: 20px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        isolation: isolate;
+      }
+
+      .background-content {
+        padding: 20px;
+        background: #ff6f61;
+        border: 2px solid #ff6f61;
+        border-radius: 8px;
+      }
+
+      /* accent-color */
+      input[type='checkbox'] {
+        accent-color: #5171ff;
+      }
+
+      /* scroll-snap */
+      .snap-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 10px;
+        width: 500px;
+      }
+
+      .snap-container.vertical {
+        flex-direction: column;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        height: 300px;
+      }
+
+      .snap-item {
+        min-width: 200px;
+        min-height: 100px;
+        background-color: #39e991;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 1.2rem;
+      }
+
+      /* grid-auto-flow */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-auto-flow: dense;
+      }
+
+      .grid-item {
+        background-color: #5171ff;
+        padding: 20px;
+        color: #ffffff;
+      }
+
+      .grid-item.large {
+        grid-column: span 2;
+      }
+
+      /* conic-gradient() */
+      .pie-chart {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #39e991 25%,
+          #5171ff 25% 50%,
+          #262833 50% 75%,
+          #dcd5d5 75%
+        );
+      }
+
+      /* quotes */
+      blockquote {
+        quotes: '❝' '❝';
+        font-size: 1.2rem;
+        margin: 20px 0;
+        color: #5171ff;
+      }
+
+      blockquote::before {
+        content: open-quote;
+      }
+
+      blockquote::after {
+        content: close-quote;
+      }
+
+      /* caret-color */
+      .caret {
+        caret-color: #39e991;
+        padding: 10px;
+        border: 1px solid #5171ff;
+      }
+
+      /* pointer-events */
+      .pointer-auto {
+        background-color: #39e991;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .pointer-none {
+        pointer-events: none;
+        background-color: #ff6f61;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+      }
+
+      /* user-select */
+      .no-select {
+        user-select: none;
+        background-color: #5171ff;
+        padding: 10px;
+        margin-top: 10px;
+        color: #ffffff;
+      }
+
+      /* hyphens */
+      .hyphenated {
+        width: 300px;
+        hyphens: auto;
+        color: #262833;
+        padding: 10px;
+      }
+
+      /* text-emphasis */
+      .emphasis {
+        text-emphasis: circle #5171ff;
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      /* backface-visibility */
+      .flip-container {
+        perspective: 1000px;
+      }
+
+      .flip {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+
+      .flip:hover {
+        transform: rotateY(180deg);
+      }
+
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        border: 2px solid #5171ff;
+      }
+
+      .flip-front {
+        background: #39e991;
+        color: #262833;
+      }
+
+      .flip-back {
+        background: #5171ff;
+        color: #ffffff;
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Приклади потужних CSS властивостей</h1>
+
+    <section>
+      <h2>clamp()</h2>
+      <div class="example text-clamp">
+        Розмір цього тексту адаптується під розмір вікна!
+      </div>
+      <p>
+        Адаптуйте розмір шрифта до вікна з clamp(), щоб забезпечити оптимальну
+        читабельність на будь-якому пристрої.
+      </p>
+    </section>
+
+    <section>
+      <h2>aspect-ratio</h2>
+      <div class="example video-container">
+        <video
+          id="video"
+          controls
+          preload="none"
+          poster="https://media.w3.org/2010/05/sintel/poster.png"
+        >
+          <source
+            id="mp4"
+            src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+            type="video/mp4"
+          />
+          <source
+            id="webm"
+            src="https://media.w3.org/2010/05/sintel/trailer.webm"
+            type="video/webm"
+          />
+          <source
+            id="ogv"
+            src="https://media.w3.org/2010/05/sintel/trailer.ogv"
+            type="video/ogg"
+          />
+          <p>Your user agent does not support the HTML5 Video element.</p>
+        </video>
+      </div>
+      <p>
+        Зробіть ваші відео та зображення ідеально пропорційними з aspect-ratio.
+        Переконайтесь, що ваш контент завжди виглядає чудово!
+      </p>
+    </section>
+
+    <section>
+      <h2>object-fit</h2>
+      <div class="example">
+        <img
+          class="image-fit"
+          src="https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg"
+        />
+      </div>
+
+      <p>
+        Зробіть ваші зображення бездоганно пристосованими до елементів з
+        object-fit, щоб уникнути спотворень і зберегти чіткість.
+      </p>
+    </section>
+
+    <section
+      style="
+        background-image: url('https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg');
+        background-size: cover;
+      "
+    >
+      <h2 class="glass" style="background: rgba(0, 0, 0, 0.3)">
+        backdrop-filter
+      </h2>
+      <p class="example glass">
+        Створіть ефект "скляної" панелі з розмиттям, який додає сучасний і
+        елегантний вигляд вашому дизайну.
+      </p>
+    </section>
+
+    <section>
+      <h2>isolation</h2>
+
+      <div class="overlay-container">
+        <div class="background-content">Контент фону</div>
+        <div class="overlay-content">Вкладений елемент з isolation</div>
+      </div>
+
+      <p>
+        Властивість isolation корисна в ситуаціях, коли потрібно контролювати
+        взаємодію між елементами, що перекривають один одного, або для створення
+        чистих, чітких ефектів без небажаних артефактів. Вона дозволяє уникнути
+        змішування фонів, змішування режимів і ефектів, що може бути важливим
+        для досягнення бажаного візуального результату.
+      </p>
+    </section>
+
+    <section>
+      <h2>accent-color</h2>
+      <label><input type="checkbox" /> Вибір з кольором акценту</label>
+      <p>
+        Надайте елементам кольору акценту з accent-color, щоб покращити
+        зовнішній вигляд інтерфейсу.
+      </p>
+    </section>
+
+    <section>
+      <h2>scroll-snap: horizontal</h2>
+      <div class="snap-container">
+        <div class="snap-item">Елемент 1</div>
+        <div class="snap-item">Елемент 2</div>
+        <div class="snap-item">Елемент 3</div>
+        <div class="snap-item">Елемент 4</div>
+      </div>
+
+      <h2>scroll-snap: vertical</h2>
+      <div class="snap-container vertical">
+        <div class="snap-item">Елемент 1</div>
+        <div class="snap-item">Елемент 2</div>
+        <div class="snap-item">Елемент 3</div>
+        <div class="snap-item">Елемент 4</div>
+      </div>
+      <p>
+        Додайте плавний та зручний прокрутку з scroll-snap, щоб ваш контент
+        легко переглядався на різних пристроях.
+      </p>
+    </section>
+
+    <section>
+      <h2>grid-auto-flow</h2>
+      <div class="example grid">
+        <div class="grid-item">1</div>
+        <div class="grid-item large">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+      </div>
+      <p>
+        Застосовуйте автоматичне розташування елементів у гріді для гнучкого та
+        ефективного дизайну сіток.
+      </p>
+    </section>
+
+    <section>
+      <h2>conic-gradient()</h2>
+      <div class="example pie-chart"></div>
+      <p>
+        Використовуйте градієнти у формі конусів для створення вражаючих
+        візуальних ефектів і привабливих графічних елементів.
+      </p>
+    </section>
+
+    <section>
+      <h2>quotes</h2>
+      <blockquote>Це цитата з використанням CSS quotes.</blockquote>
+      <p>
+        Створіть елегантні цитати з власним стилем завдяки властивості quotes.
+      </p>
+    </section>
+
+    <section>
+      <h2>caret-color</h2>
+      <textarea
+        class="caret"
+        rows="3"
+        placeholder="Введіть текст тут..."
+      ></textarea>
+      <p>
+        Надайте кольору курсору текстового поля з caret-color, щоб підвищити
+        його видимість та привабливість.
+      </p>
+    </section>
+
+    <section>
+      <h2>pointer-events: auto</h2>
+      <button class="pointer-auto">Цей елемент реагує на події миші</button>
+
+      <h2>pointer-events: none</h2>
+      <button class="pointer-none">Цей елемент не реагує на події миші</button>
+
+      <p>
+        Контролюйте, чи елементи реагують на події миші з властивістю
+        pointer-events, для покращення взаємодії з користувачем.
+      </p>
+    </section>
+
+    <section>
+      <h2>user-select</h2>
+      <div class="no-select">Цей текст не можна виділити</div>
+      <p>
+        Забороніть виділення тексту з user-select, щоб захистити контент або
+        покращити взаємодію з користувачем.
+      </p>
+    </section>
+
+    <section>
+      <h2>hyphens</h2>
+      <div class="hyphenated">
+        Це приклад тексту з автоматичним розривом слів. Якщо ви вставите сюди
+        дуже довге слово або рядок, ви побачите, як CSS автоматично додає
+        перенос.
+      </div>
+      <p>
+        Покращте читабельність довгих слів з автоматичним розривом слів за
+        допомогою hyphens.
+      </p>
+    </section>
+
+    <section>
+      <h2>text-emphasis</h2>
+      <p>Текст з<span class="emphasis">акцентом</span></p>
+      <p>
+        Підкресліть важливі частини тексту з text-emphasis для привернення уваги
+        до ключових слів або фраз.
+      </p>
+    </section>
+
+    <section>
+      <h2>backface-visibility</h2>
+      <div class="flip-container">
+        <div class="flip">
+          <div class="flip-front">Передня частина</div>
+          <div class="flip-back">Задня частина</div>
+        </div>
+      </div>
+      <p>
+        Додайте тривимірний ефект оберту елементів з backface-visibility для
+        динамічного та інтерактивного дизайну.
+      </p>
+    </section>
+  </body>
+</html>
