@@ -2,7 +2,10 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <title>CSS Властивості</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <style>
@@ -233,6 +236,9 @@
 
       /* user-select */
       .no-select {
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer */
         user-select: none;
         background-color: #5171ff;
         padding: 10px;
