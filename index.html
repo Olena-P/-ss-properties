@@ -17,12 +17,7 @@
         padding: 20px;
       }
 
-      h1 {
-        color: #39e991;
-        border-bottom: 2px solid #5171ff;
-        padding-bottom: 5px;
-      }
-
+      h1,
       h2 {
         color: #39e991;
         border-bottom: 2px solid #5171ff;
@@ -95,6 +90,13 @@
       }
 
       /* backdrop-filter */
+      .glass-section {
+        background-image: url('https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg');
+        background-size: cover;
+      }
+      .glass-section-title {
+        background: rgba(0, 0, 0, 0.3);
+      }
       .glass {
         backdrop-filter: blur(10px) contrast(60%);
         -webkit-backdrop-filter: blur(10px) contrast(60%);
@@ -196,7 +198,7 @@
 
       /* quotes */
       blockquote {
-        quotes: '❝' '❝';
+        quotes: '❝' '❞';
         font-size: 1.2rem;
         margin: 20px 0;
         color: #5171ff;
@@ -236,9 +238,9 @@
 
       /* user-select */
       .no-select {
-        -webkit-user-select: none; /* Safari */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
         background-color: #5171ff;
         padding: 10px;
@@ -288,7 +290,7 @@
         font-size: 2rem;
         color: #ffffff;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        backface-visibility: hidden; /* Default is hidden */
+        backface-visibility: hidden;
       }
 
       .front {
@@ -322,11 +324,11 @@
       }
 
       .show-backface .back {
-        backface-visibility: visible; /* Show backfaces */
+        backface-visibility: visible;
       }
 
       .hide-backface .back {
-        backface-visibility: hidden; /* Hide backfaces */
+        backface-visibility: hidden;
       }
 
       @keyframes rotate {
@@ -340,245 +342,265 @@
     </style>
   </head>
   <body>
-    <h1>Приклади потужних CSS властивостей</h1>
+    <header>
+      <h1>Приклади потужних CSS властивостей</h1>
+    </header>
 
-    <section>
-      <h2>clamp()</h2>
-      <div class="example text-clamp">
-        Розмір цього тексту адаптується під розмір вікна!
-      </div>
-      <p>
-        Адаптуйте розмір шрифта до вікна з clamp(), щоб забезпечити оптимальну
-        читабельність на будь-якому пристрої.
-      </p>
-    </section>
+    <main>
+      <article>
+        <section aria-labelledby="clamp-example">
+          <h2 id="clamp-example">clamp()</h2>
+          <div class="example text-clamp" role="presentation">
+            Розмір цього тексту адаптується під розмір вікна!
+          </div>
+          <p>
+            Адаптуйте розмір шрифта до вікна з clamp(), щоб забезпечити
+            оптимальну читабельність на будь-якому пристрої.
+          </p>
+        </section>
 
-    <section>
-      <h2>aspect-ratio</h2>
-      <div class="example video-container">
-        <video
-          id="video"
-          controls
-          preload="none"
-          poster="https://media.w3.org/2010/05/sintel/poster.png"
-        >
-          <source
-            id="mp4"
-            src="https://media.w3.org/2010/05/sintel/trailer.mp4"
-            type="video/mp4"
-          />
-          <source
-            id="webm"
-            src="https://media.w3.org/2010/05/sintel/trailer.webm"
-            type="video/webm"
-          />
-          <source
-            id="ogv"
-            src="https://media.w3.org/2010/05/sintel/trailer.ogv"
-            type="video/ogg"
-          />
-          <p>Your user agent does not support the HTML5 Video element.</p>
-        </video>
-      </div>
-      <p>
-        Зробіть ваші відео та зображення ідеально пропорційними з aspect-ratio.
-        Переконайтесь, що ваш контент завжди виглядає чудово!
-      </p>
-    </section>
+        <section aria-labelledby="aspect-ratio">
+          <h2 id="aspect-ratio">aspect-ratio</h2>
+          <figure class="example video-container">
+            <video
+              id="video"
+              controls
+              preload="none"
+              poster="https://media.w3.org/2010/05/sintel/poster.png"
+              aria-label="Демонстраційне відео"
+            >
+              <source
+                id="mp4"
+                src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+                type="video/mp4"
+              />
+              <source
+                id="webm"
+                src="https://media.w3.org/2010/05/sintel/trailer.webm"
+                type="video/webm"
+              />
+              <source
+                id="ogv"
+                src="https://media.w3.org/2010/05/sintel/trailer.ogv"
+                type="video/ogg"
+              />
+              <p>Your user agent does not support the HTML5 Video element.</p>
+            </video>
+          </figure>
+          <p>
+            Зробіть ваші відео та зображення ідеально пропорційними з
+            aspect-ratio. Переконайтесь, що ваш контент завжди виглядає чудово!
+          </p>
+        </section>
 
-    <section>
-      <h2>object-fit</h2>
-      <div class="example">
-        <img
-          class="image-fit"
-          src="https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg"
-        />
-      </div>
+        <section aria-labelledby="object-fit">
+          <h2 id="object-fit">object-fit</h2>
+          <figure class="example">
+            <img
+              class="image-fit"
+              src="https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg"
+              alt="Приклад зображення з застосуванням object-fit"
+            />
+          </figure>
 
-      <p>
-        Зробіть ваші зображення бездоганно пристосованими до елементів з
-        object-fit, щоб уникнути спотворень і зберегти чіткість.
-      </p>
-    </section>
+          <p>
+            Зробіть ваші зображення бездоганно пристосованими до елементів з
+            object-fit, щоб уникнути спотворень і зберегти чіткість.
+          </p>
+        </section>
 
-    <section
-      style="
-        background-image: url('https://img.freepik.com/free-vector/silhouette-scene-with-girl-climbing-rock_1308-99472.jpg');
-        background-size: cover;
-      "
-    >
-      <h2 class="glass" style="background: rgba(0, 0, 0, 0.3)">
-        backdrop-filter
-      </h2>
-      <p class="example glass">
-        Створіть ефект "скляної" панелі з розмиттям, який додає сучасний і
-        елегантний вигляд вашому дизайну.
-      </p>
-    </section>
+        <section aria-labelledby="backdrop-filter" class="glass-section">
+          <h2 id="backdrop-filter" class="glass-section-title">
+            backdrop-filter
+          </h2>
+          <div class="glass">
+            <p>
+              Створіть ефект "скляної" панелі з розмиттям, який додає сучасний і
+              елегантний вигляд вашому дизайну.
+            </p>
+          </div>
+        </section>
 
-    <section>
-      <h2>isolation</h2>
+        <section aria-labelledby="isolation">
+          <h2 id="isolation">isolation</h2>
 
-      <div class="overlay-container">
-        <div class="background-content">Контент фону</div>
-        <div class="overlay-content">Вкладений елемент з isolation</div>
-      </div>
+          <div class="overlay-container">
+            <div class="background-content">Контент фону</div>
+            <div class="overlay-content">Вкладений елемент з isolation</div>
+          </div>
 
-      <p>
-        Властивість isolation корисна в ситуаціях, коли потрібно контролювати
-        взаємодію між елементами, що перекривають один одного, або для створення
-        чистих, чітких ефектів без небажаних артефактів. Вона дозволяє уникнути
-        змішування фонів, змішування режимів і ефектів, що може бути важливим
-        для досягнення бажаного візуального результату.
-      </p>
-    </section>
+          <p>
+            Властивість isolation корисна в ситуаціях, коли потрібно
+            контролювати взаємодію між елементами, що перекривають один одного,
+            або для створення чистих, чітких ефектів.
+          </p>
+        </section>
 
-    <section>
-      <h2>accent-color</h2>
-      <label><input type="checkbox" /> Вибір з кольором акценту</label>
-      <p>
-        Надайте елементам кольору акценту з accent-color, щоб покращити
-        зовнішній вигляд інтерфейсу.
-      </p>
-    </section>
+        <section aria-labelledby="accent-color">
+          <h2 id="accent-color">accent-color</h2>
+          <label
+            ><input type="checkbox" aria-label="Вибір кольору акценту" /> Вибір
+            з кольором акценту</label
+          >
+          <p>
+            Надайте елементам кольору акценту з accent-color, щоб покращити
+            зовнішній вигляд інтерфейсу.
+          </p>
+        </section>
 
-    <section>
-      <h2>scroll-snap: horizontal</h2>
-      <div class="snap-container">
-        <div class="snap-item">Елемент 1</div>
-        <div class="snap-item">Елемент 2</div>
-        <div class="snap-item">Елемент 3</div>
-        <div class="snap-item">Елемент 4</div>
-      </div>
+        <section aria-labelledby="scroll-snap-horizontal">
+          <h2 id="scroll-snap-horizontal">scroll-snap: horizontal</h2>
+          <div class="snap-container">
+            <div class="snap-item">Елемент 1</div>
+            <div class="snap-item">Елемент 2</div>
+            <div class="snap-item">Елемент 3</div>
+            <div class="snap-item">Елемент 4</div>
+          </div>
 
-      <h2>scroll-snap: vertical</h2>
-      <div class="snap-container vertical">
-        <div class="snap-item">Елемент 1</div>
-        <div class="snap-item">Елемент 2</div>
-        <div class="snap-item">Елемент 3</div>
-        <div class="snap-item">Елемент 4</div>
-      </div>
-      <p>
-        Додайте плавний та зручний прокрутку з scroll-snap, щоб ваш контент
-        легко переглядався на різних пристроях.
-      </p>
-    </section>
+          <h2 id="scroll-snap-vertical">scroll-snap: vertical</h2>
+          <div class="snap-container vertical">
+            <div class="snap-item">Елемент 1</div>
+            <div class="snap-item">Елемент 2</div>
+            <div class="snap-item">Елемент 3</div>
+            <div class="snap-item">Елемент 4</div>
+          </div>
+          <p>
+            Додайте плавний та зручний прокрутку з scroll-snap, щоб ваш контент
+            легко переглядався на різних пристроях.
+          </p>
+        </section>
 
-    <section>
-      <h2>grid-auto-flow</h2>
-      <div class="example grid">
-        <div class="grid-item">1</div>
-        <div class="grid-item large">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-      </div>
-      <p>
-        Застосовуйте автоматичне розташування елементів у гріді для гнучкого та
-        ефективного дизайну сіток.
-      </p>
-    </section>
+        <section aria-labelledby="grid-auto-flow">
+          <h2 id="grid-auto-flow">grid-auto-flow</h2>
+          <div class="example grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item large">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+          </div>
+          <p>
+            Застосовуйте автоматичне розташування елементів у гріді для гнучкого
+            та ефективного дизайну сіток.
+          </p>
+        </section>
 
-    <section>
-      <h2>conic-gradient()</h2>
-      <div class="example pie-chart"></div>
-      <p>
-        Використовуйте градієнти у формі конусів для створення вражаючих
-        візуальних ефектів і привабливих графічних елементів.
-      </p>
-    </section>
+        <section aria-labelledby="conic-gradient">
+          <h2 id="conic-gradient">conic-gradient()</h2>
+          <div
+            class="example pie-chart"
+            role="img"
+            aria-label="Діаграма на основі градієнту"
+          ></div>
+          <p>
+            Використовуйте градієнти у формі конусів для створення вражаючих
+            візуальних ефектів і привабливих графічних елементів.
+          </p>
+        </section>
 
-    <section>
-      <h2>quotes</h2>
-      <blockquote>Це цитата з використанням CSS quotes.</blockquote>
-      <p>
-        Створіть елегантні цитати з власним стилем завдяки властивості quotes.
-      </p>
-    </section>
+        <section aria-labelledby="quotes">
+          <h2 id="quotes">quotes</h2>
+          <blockquote>Це цитата з використанням CSS quotes.</blockquote>
+          <p>
+            Створіть елегантні цитати з власним стилем завдяки властивості
+            quotes.
+          </p>
+        </section>
 
-    <section>
-      <h2>caret-color</h2>
-      <textarea
-        class="caret"
-        rows="3"
-        placeholder="Введіть текст тут..."
-      ></textarea>
-      <p>
-        Надайте кольору курсору текстового поля з caret-color, щоб підвищити
-        його видимість та привабливість.
-      </p>
-    </section>
+        <section aria-labelledby="caret-color">
+          <h2 id="caret-color">caret-color</h2>
+          <textarea
+            class="caret"
+            rows="3"
+            placeholder="Введіть текст тут..."
+            aria-label="Поле вводу тексту з кастомним кольором курсору"
+          ></textarea>
+          <p>
+            Надайте кольору курсору текстового поля з caret-color, щоб підвищити
+            його видимість та привабливість.
+          </p>
+        </section>
 
-    <section>
-      <h2>pointer-events: auto</h2>
-      <button class="pointer-auto">Цей елемент реагує на події миші</button>
+        <section aria-labelledby="pointer-events">
+          <h2 id="pointer-events">pointer-events: auto</h2>
+          <button class="pointer-auto" role="button">
+            Цей елемент реагує на події миші
+          </button>
 
-      <h2>pointer-events: none</h2>
-      <button class="pointer-none">Цей елемент не реагує на події миші</button>
+          <h2 id="pointer-events-none">pointer-events: none</h2>
+          <button class="pointer-none" role="button" aria-disabled="true">
+            Цей елемент не реагує на події миші
+          </button>
 
-      <p>
-        Контролюйте, чи елементи реагують на події миші з властивістю
-        pointer-events, для покращення взаємодії з користувачем.
-      </p>
-    </section>
+          <p>
+            Контролюйте, чи елементи реагують на події миші з властивістю
+            pointer-events, для покращення взаємодії з користувачем.
+          </p>
+        </section>
 
-    <section>
-      <h2>user-select</h2>
-      <div class="no-select">Цей текст не можна виділити</div>
-      <p>
-        Забороніть виділення тексту з user-select, щоб захистити контент або
-        покращити взаємодію з користувачем.
-      </p>
-    </section>
+        <section aria-labelledby="user-select">
+          <h2 id="user-select">user-select</h2>
+          <div class="no-select">Цей текст не можна виділити</div>
+          <p>
+            Забороніть виділення тексту з user-select, щоб захистити контент або
+            покращити взаємодію з користувачем.
+          </p>
+        </section>
 
-    <section>
-      <h2>hyphens</h2>
-      <div class="hyphenated">
-        Це приклад тексту з автоматичним розривом слів. Якщо ви вставите сюди
-        дуже довге слово або рядок, ви побачите, як CSS автоматично додає
-        перенос.
-      </div>
-      <p>
-        Покращте читабельність довгих слів з автоматичним розривом слів за
-        допомогою hyphens.
-      </p>
-    </section>
+        <section aria-labelledby="hyphens">
+          <h2 id="hyphens">hyphens</h2>
+          <div class="hyphenated">
+            Це приклад тексту з автоматичним розривом слів. Якщо ви вставите
+            сюди дуже довге слово або рядок, ви побачите, як CSS автоматично
+            додає перенос.
+          </div>
+          <p>
+            Покращте читабельність довгих слів з автоматичним розривом слів за
+            допомогою hyphens.
+          </p>
+        </section>
 
-    <section>
-      <h2>text-emphasis</h2>
-      <p>Текст з<span class="emphasis">акцентом</span></p>
-      <p>
-        Підкресліть важливі частини тексту з text-emphasis для привернення уваги
-        до ключових слів або фраз.
-      </p>
-    </section>
+        <section aria-labelledby="text-emphasis">
+          <h2 id="text-emphasis">text-emphasis</h2>
+          <p>Текст з<span class="emphasis">акцентом</span></p>
+          <p>
+            Підкресліть важливі частини тексту з text-emphasis для привернення
+            уваги до ключових слів або фраз.
+          </p>
+        </section>
 
-    <section>
-      <h2>backface-visibility</h2>
-      <div class="cube-container">
-        <!-- Cube with visible backfaces -->
-        <div class="cube show-backface">
-          <div class="face front">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
-        </div>
+        <section aria-labelledby="backface-visibility">
+          <h2 id="backface-visibility">backface-visibility</h2>
+          <div class="cube-container">
+            <!-- Cube with visible backfaces -->
+            <div class="cube show-backface">
+              <div class="face front">1</div>
+              <div class="face back">2</div>
+              <div class="face right">3</div>
+              <div class="face left">4</div>
+              <div class="face top">5</div>
+              <div class="face bottom">6</div>
+            </div>
 
-        <!-- Cube with hidden backfaces -->
-        <div class="cube hide-backface">
-          <div class="face front">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
-        </div>
-      </div>
-      <p>
-        Додайте тривимірний ефект оберту елементів з backface-visibility для
-        динамічного та інтерактивного дизайну.
-      </p>
-    </section>
+            <!-- Cube with hidden backfaces -->
+            <div class="cube hide-backface">
+              <div class="face front">1</div>
+              <div class="face back">2</div>
+              <div class="face right">3</div>
+              <div class="face left">4</div>
+              <div class="face top">5</div>
+              <div class="face bottom">6</div>
+            </div>
+          </div>
+          <p>
+            Додайте тривимірний ефект оберту елементів з backface-visibility для
+            динамічного та інтерактивного дизайну.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>© 2024 CSS Властивості</p>
+    </footer>
   </body>
 </html>
