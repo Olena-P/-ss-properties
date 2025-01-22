@@ -68,6 +68,19 @@
               poster="https://media.w3.org/2010/05/sintel/poster.png"
               aria-label="Демонстраційне відео"
             >
+              <track
+                src="https://example.com/captions_en.vtt"
+                kind="subtitles"
+                srclang="en"
+                label="English"
+                default
+              />
+              <track
+                src="https://example.com/captions_uk.vtt"
+                kind="subtitles"
+                srclang="uk"
+                label="Українська"
+              />
               <source
                 id="mp4"
                 src="https://media.w3.org/2010/05/sintel/trailer.mp4"
@@ -85,6 +98,18 @@
               />
               <p>Your user agent does not support the HTML5 Video element.</p>
             </video>
+            <figcaption>
+              <p>
+                Демонстраційне відео з доступними субтитрами та транскриптом.
+              </p>
+              <a
+                href="https://example.com/transcript.txt"
+                target="_blank"
+                rel="noopener"
+              >
+                Читати транскрипт
+              </a>
+            </figcaption>
           </figure>
           <p>
             Зробіть ваші відео та зображення ідеально пропорційними з
@@ -297,7 +322,7 @@
           </p>
         </section>
 
-        <section aria-labelledby="list">
+        <section aria-labelledby="list-style">
           <h2 id="list-style">List style</h2>
           <ul class="unordered-list">
             <li>Item 1</li>
